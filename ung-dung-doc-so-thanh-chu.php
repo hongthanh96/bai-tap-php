@@ -30,78 +30,121 @@
         <div>
             <p>Số này đọc là: </p>
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $numsearch = $_POST['number'];
-            }
-            if ($numsearch < 10 && $numsearch >= 0) {
-                $num1 = $numsearch;
-                switch ($num1) {
+
+            function searchto10($numsearch)
+            {
+                switch ($numsearch) {
                     case 1:
-                        echo "one";
+                        return "one";
                         break;
                     case 2:
-                        echo "two ";
+                        return "two ";
                         break;
                     case 3:
-                        echo "three ";
+                        return "three ";
                         break;
                     case 4:
-                        echo "four ";
+                        return "four ";
                         break;
                     case 5:
-                        echo "five ";
+                        return "five ";
                         break;
                     case 6:
-                        echo "six";
+                        return "six";
                         break;
                     case 7:
-                        echo "seven ";
+                        return "seven ";
                         break;
                     case 8:
-                        echo "eight";
+                        return "eight";
                         break;
                     case 9:
-                        echo "nine";
+                        return "nine";
                         break;
                 }
-                 
             }
-
-            if ($numsearch >= 10 && $numsearch < 20) {
-                global $num1;
-                $numbeafter = $_POST['$num1'];
-                $num2 = $numsearch;
-                switch ($num2) {
+            function searchto20($numsearch)
+            {
+                switch ($numsearch) {
                     case 10:
-                        echo "ten";
+                        return "ten";
                         break;
                     case 11:
-                        echo "eleven";
+                        return "eleven";
                         break;
                     case 12:
-                        echo "twelve";
+                        return "twelve";
                         break;
                     case 13:
-                        echo "thirteen";
+                        return "thirteen";
                         break;
-                    case '1'.$numbeafter:
-                        echo "fiveteen";
+                    case 14:
+                        return "fourteen";
                         break;
-                    // case $numbefore . '5':
-                    //     echo "$numbefore.$teen";
-                    //     break;
-                    // case $numbefore . '6':
-                    //     echo "$numbefore.$teen";
-                    //     break;
-                    // case $numbefore . '7':
-                    //     echo "$numbefore.$teen";
-                    //     break;
-                    // case $numbefore . '8':
-                    //     echo "$numbefore.$teen";
-                    //     break;
-                    // case $numbefore . '9':
-                    //     echo "$numbeforenum1.$teen";
-                    //     break;
+                    case 15:
+                        return "fifteen";
+                        break;
+                    case 16:
+                        return "sixteen";
+                        break;
+                    case 17:
+                        return "seventeen";
+                        break;
+                    case 18:
+                        return "eightteen";
+                        break;
+                    case 19:
+                        return "nineteen";
+                        break;
+                }
+            }
+            function searchto100($num2){
+                switch($num2){
+                    case 2:
+                        return "twenty";
+                    break;
+                    case 3:
+                        return "thirty";
+                    break;
+                    case 4:
+                        return "forty";
+                    break;
+                    case 5:
+                        return "fifty";
+                    break;
+                    case 6:
+                        return "sixty";
+                    break;
+                    case 7:
+                        return "seventy";
+                    break;
+                    case 8:
+                        return "eighty";
+                    break;
+                    case 9:
+                        return "ninety";
+                    break;
+
+                }
+            }
+
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $numsearch = $_POST['number'];
+                if ($numsearch < 10 && $numsearch >= 0) {
+                    $num1 = searchto10($numsearch);
+                    echo $num1;
+                }
+                if ($numsearch >= 10 && $numsearch < 20) {
+                    echo searchto20($numsearch);
+                }
+                if($numsearch >=20 && $numsearch <100){
+                    $num2 = (floor($numsearch / 10));
+                    $num3 = $numsearch % 10;
+                    $numtwo = searchto100($num2);
+                    $numone = searchto10($num3);
+                   
+                    echo $numtwo." ".$numone;
                 }
             }
             ?>
