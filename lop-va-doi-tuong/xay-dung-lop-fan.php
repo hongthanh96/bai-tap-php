@@ -56,7 +56,7 @@
     $fan1->setColor("yellow");
     echo "Fan1: ".$fan1-> toString()."<br>";
     $fan2 = new Fan();
-    $fan2->setOn(true);
+    $fan2->setOn(false);
     $fan2->setSpeed($fan2::MEDIUM);
     $fan2->setRadius(5);
 
