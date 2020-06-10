@@ -65,7 +65,7 @@ $customer_list = array(
         <input type="text" name="to" placeholder="yyyy/mm/dd">
         <input type="submit" value="Search" id="submit">
     </form>
-    <table border="0">
+    <table>
   <caption><h2>Danh sách khách hàng</h2></caption>
   <tr>
     <th>STT</th>

@@ -1,20 +1,20 @@
 
 <?php
-    function checknum($num1, $num2,$codition){
-        if($num2 == 0 && $codition == "div"){
+    function checknum($num1,$num2,$condition){
+        if($num2 == 0 && $condition == "div"){
             throw new Exception("Số chia phải khác không!");
         }
         try{
-            if($codition == "add"){
+            if($condition == "add"){
                 return $num1."+".$num2."=".$num1 + $num2;
             }
-            if($codition == "sub"){
+            if($condition == "sub"){
                 return $num1."-".$num2."=".$num1 - $num2;
             }
-            if($codition == "mul"){
+            if($condition == "mul"){
                 return $num1."*".$num2."=".$num1 * $num2;
             }
-            if($codition == "div"){
+            if($condition == "div"){
                 return $num1."/".$num2."=".$num1 / $num2;
             }
         }
@@ -23,9 +23,10 @@
         }
     }
     if(isset($_POST["add"])){
-        $num1 = $_POST["num1"];
-        $num2 = $_POST["num2"];
-        $codition = $_POST["codition"];
+        $num1 = (float)$_POST["num1"];
+        $num2 = (float)$_POST["num2"];
+        $condition = $_POST["condition"];
+        echo checknum($num1,$num2,$condition);
     }
 
 
@@ -52,7 +53,7 @@
             <input type="number" name="num2" id="">
         </div>
         <div>
-            <select name="codition">
+            <select name="condition">
                 <option value="add">Additional(+)</option>
                 <option value="sub">Subtraction(-)</option>
                 <option value="mul">multiplication(*)</option>
