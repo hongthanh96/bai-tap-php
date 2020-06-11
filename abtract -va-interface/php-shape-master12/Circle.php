@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dungduong
- * Date: 11/21/18
- * Time: 17:14
- */
 include_once ('Shape.php');
+include_once ("Resizeable.php");
 
-class Circle extends Shape
+class Circle extends Shape implements Resizeable
 {
     public $radius;
 
@@ -23,5 +18,9 @@ class Circle extends Shape
 
     public function calculatePerimeter(){
         return pi() * $this->radius * 2;
+    }
+    public function resize($percent){
+        $radiusAfter = $this->radius + ($this->radius * $percent)/100;
+        $this->radius = $radiusAfter;
     }
 }

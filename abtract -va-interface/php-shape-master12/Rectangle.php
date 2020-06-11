@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dungduong
- * Date: 11/21/18
- * Time: 17:16
- */
 include_once ('Shape.php');
+include_once ("Resizeable.php");
 
-class Rectangle extends Shape
+class Rectangle extends Shape implements Resizeable
 {
     public $width;
     public $height;
@@ -25,5 +20,11 @@ class Rectangle extends Shape
 
     public function calculatePerimeter(){
         return ($this->height + $this->width) * 2;
+    }
+    public function resize($percent){
+        $widthAfter = $this->width + ($this->width * $percent)/100;
+        $heightAfter = $this->height + ($this->height * $percent)/100;
+        $this->width = $widthAfter;
+        $this->height = $heightAfter;
     }
 }

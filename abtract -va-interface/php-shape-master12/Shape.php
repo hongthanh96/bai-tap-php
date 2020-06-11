@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dungduong
- * Date: 11/21/18
- * Time: 17:14
- */
 class Shape
 {
     public $name;

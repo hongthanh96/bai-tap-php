@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dungduong
- * Date: 11/21/18
- * Time: 17:15
- */
 include_once ('Circle.php');
+include_once ("Resizeable.php");
 
-class Cylinder extends Circle
+class Cylinder extends Circle implements Resizeable
 {
     public $height;
 
@@ -24,5 +19,9 @@ class Cylinder extends Circle
 
     public function calculateVolume(){
         return parent::calculateArea() * $this->height;
+    }
+    public function resize($percent){
+        $radiusAfter = $this->radius + ($this->radius * $percent)/100;
+        $this->radius = $radiusAfter;
     }
 }
