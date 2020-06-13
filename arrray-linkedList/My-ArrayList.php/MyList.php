@@ -1,5 +1,5 @@
 <?php
-class MyList
+class ArrayList
 {
     public $arrayList;
     public function ArrayList($arr = "")
@@ -11,7 +11,7 @@ class MyList
     }
     public function insert($index, $obj)
     {
-        $arrayList[$index] = $obj;
+        $this->arrayList[$index] = $obj;
     }
     public function add($obj)
     {
@@ -57,7 +57,6 @@ class MyList
     {
         sort($this->arrayList);
     }
-
     public function size()
     {
         return count($this->arrayList);
