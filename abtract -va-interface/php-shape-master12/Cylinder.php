@@ -6,10 +6,10 @@ class Cylinder extends Circle implements Resizeable
 {
     public $height;
 
-    public function __construct($name, $radius, $height)
+    public function __construct($name)
     {
-        parent::__construct($name, $radius);
-        $this->height = $height;
+        parent::__construct($name);
+        $this->height = 1;
     }
 
     public function calculateArea()
@@ -20,8 +20,9 @@ class Cylinder extends Circle implements Resizeable
     public function calculateVolume(){
         return parent::calculateArea() * $this->height;
     }
-    public function resize($percent){
-        $radiusAfter = $this->radius + ($this->radius * $percent)/100;
+    public function resize(){
+        $percent = rand(1,100);
+        $radiusAfter = $this->radius + ($this->radius * $percent);
         $this->radius = $radiusAfter;
     }
 }

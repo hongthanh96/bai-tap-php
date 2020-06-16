@@ -15,8 +15,9 @@ class Square extends Rectangle implements Resizeable
     public function calculatePerimeter(){
         return $this->width * 4;
     }
-    public function resize($percent){
-        $widthAfter = $this->width + ($this->width * $percent)/100;
+    public function resize(){
+        $percent = rand(1,100);
+        $widthAfter = $this->width + ($this->width * $percent);
         $this->width = $widthAfter;
     }
 }

@@ -7,11 +7,11 @@ class Rectangle extends Shape implements Resizeable
     public $width;
     public $height;
 
-    public function __construct($name, $width, $height)
+    public function __construct($name)
     {
         parent::__construct($name);
-        $this->width = $width;
-        $this->height = $height;
+        $this->width = 1;
+        $this->height = 1;
     }
 
     public function calculateArea(){
@@ -21,9 +21,10 @@ class Rectangle extends Shape implements Resizeable
     public function calculatePerimeter(){
         return ($this->height + $this->width) * 2;
     }
-    public function resize($percent){
-        $widthAfter = $this->width + ($this->width * $percent)/100;
-        $heightAfter = $this->height + ($this->height * $percent)/100;
+    public function resize(){
+        $percent = rand(1,100);
+        $widthAfter = $this->width + ($this->width * $percent);
+        $heightAfter = $this->height + ($this->height * $percent);
         $this->width = $widthAfter;
         $this->height = $heightAfter;
     }

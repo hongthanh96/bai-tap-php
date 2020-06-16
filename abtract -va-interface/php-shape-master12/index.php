@@ -4,35 +4,24 @@ include_once ('Cylinder.php');
 include_once ('Rectangle.php');
 include_once ('Square.php');
 include_once ('Resizeable.php');
-// include_once ('interface-Resizeable.php');
+$arrShape = [];
+for($i = 0; $i< 5; $i++){
+    $shapes = new Circle("Circle $i");
+    $shapes->resize();
+    array_push($arrShape,["Name"=>$shapes->name,"Radius"=>$shapes->radius,"Area"=>$shapes->calculateArea(),"Pre"=>$shapes->calculatePerimeter()]);
+}
 
-$circle = new Circle('Circle 01', 3);
-echo 'Circle area: ' . $circle->calculateArea() . '<br />';
-echo 'Circle perimeter: ' . $circle->calculatePerimeter() . '<br />';
-
-$cylinder = new Cylinder('Cylinder 01', 3 , 4);
-echo 'Cylinder area: ' . $cylinder->calculateArea() . '<br />';
-echo 'Cylinder perimeter: ' . $cylinder->calculatePerimeter() . '<br />';
-
-$rectangle = new Rectangle('Rectangle 01', 3 , 4);
-echo 'Rectangle area: ' . $rectangle->calculateArea() . '<br />';
-echo 'Rectangle perimeter: ' . $rectangle->calculatePerimeter() . '<br />';
-
-$square = new Square('Square 01', 4 , 4, 4);
-echo 'Square area: ' . $square->calculateArea() . '<br />';
-echo 'Square perimeter: ' . $square->calculatePerimeter() . '<br><br />';
-
-$percent =rand(1,100);
-echo "Percent = ".$percent."%<br>";
-$circle->resize($percent);
-echo 'Circle area after: ' . $circle->calculateArea() . '<br />';
-echo 'Circle perimeter after: ' . $circle->calculatePerimeter() . '<br />';
-$cylinder->resize($percent);
-echo 'Cylinder area: ' . $cylinder->calculateArea() . '<br />';
-echo 'Cylinder perimeter: ' . $cylinder->calculatePerimeter() . '<br />';
-$rectangle->resize($percent);
-echo 'Rectangle area: ' . $rectangle->calculateArea() . '<br />';
-echo 'Rectangle perimeter: ' . $rectangle->calculatePerimeter() . '<br />';
-$square->resize($percent);
-echo 'Square area: ' . $square->calculateArea() . '<br />';
-echo 'Square perimeter: ' . $square->calculatePerimeter() . '<br />';
+for($i = 0; $i < 5; $i++){
+    $shapes = new Cylinder("Cylinder$i");
+    $shapes->resize();
+    array_push($arrShape,["Name"=>$shapes->name, "Height"=> $shapes->height,"Area"=>$shapes->calculateArea(),"Pre"=>$shapes->calculatePerimeter()]);
+}
+for($i = 0; $i < 5; $i++){
+    $shapes = new Rectangle("Rectangle $i");
+    $shapes->resize();
+    array_push($arrShape,["Name"=>$shapes->name,"Area"=>$shapes->calculateArea(),"Pre"=>$shapes->calculatePerimeter()]);
+}
+var_dump($arrShape);
+echo $shapes->maxArea($arrShape)."<br>";
+echo $shapes->MinPerimeter($arrShape)."<br>";
+echo $shapes->Search($arrShape,'Circle 2');
