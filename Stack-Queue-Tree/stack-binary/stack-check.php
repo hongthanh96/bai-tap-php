@@ -13,7 +13,7 @@
          for($i = 0; $i < $count; $i++){
              $str .= $stack->pop();
          }
-         echo "Hệ nhị phân: ".$str;
+        //  echo $str;
     }
    
 ?>
@@ -31,6 +31,7 @@
      <input type="number" name="num" id="">
      </div>
      <input type="submit" value="Add">
+     <p>Hệ nhị phân <?=  $str ?? '' ?></p>
     </form>
 </body>
 </html>
