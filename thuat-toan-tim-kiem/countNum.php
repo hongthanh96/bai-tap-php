@@ -11,11 +11,12 @@
     }
     $arrNum = [];
     for($i = 0; $i < 100; $i++){
-        $arr[$i] = rand(1,101);
+        $arrNum[$i] = rand(1,50);
     }
     foreach($arrNum as $value){
         echo $value." ";
     }
+    echo "<br>";
     echo countNum($arrNum,10);
 
 ?>
