@@ -1,8 +1,15 @@
 <?php
+class DivideByZeroException extends Exception {
+
+    public function __toString()
+    {
+        return "Can't divide by zero";
+    }
+}
 function divide($num1, $num2)
 {
     if ($num2 == 0) {
-        throw new Exception("can't divide by zero");
+        throw new DivideByZeroException();
     } else {
         return $num1 / $num2;
     }
@@ -33,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         try {
             operator($num1, $num2, $condition,$result);
-        } catch (Exception $e) {
-            echo "Có lỗi xảy ra: " . $e->getMessage();
+        } catch (DivideByZeroException $e) {
+            echo "Có lỗi xảy ra: " . $e;
         }
     }
 }
