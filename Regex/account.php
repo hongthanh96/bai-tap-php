@@ -3,9 +3,9 @@ function checkAccount($str)
 {
     $pattern = '/^[_a-z0-9]{6,}$/';
     if (preg_match($pattern, $str)) {
-        echo "Email hợp lệ!";
+        echo "Account hợp lệ!";
     } else {
-        echo "Email không hợp lệ!";
+        echo "Account không hợp lệ!";
     }
 }
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
